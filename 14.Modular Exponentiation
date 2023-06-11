@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+
+int power(long long int x,int n,int m)
+{
+	if(n==0)
+	{
+		return 1;
+	}
+	if(x==1||n==1)
+		return x%m;
+	if(n%2==0)
+	{
+		return power(x*x%m,n/2,m)%m;
+		
+	}
+	else
+	{
+		return x*power(x*x%m,n/2,m)%m;
+	}
+}
+int modularExponentiation(int y,int n,int m){
+	return power(y,n,m);
+}

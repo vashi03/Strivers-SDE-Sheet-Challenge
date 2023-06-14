@@ -1,0 +1,24 @@
+#include <bits/stdc++.h> 
+int uniqueSubstrings(string s)
+{
+    //Write your code here
+    int maxi=0,c=0;
+    map<char,int> mp;
+    for(int i=0;i<s.length();)
+    {
+        if(mp[s[i]]==0)
+        {
+            c++;
+            maxi=max(maxi,c);
+            mp[s[i]]=i+1;
+            i++;
+        }
+        else
+        {
+            c=0;
+            i=mp[s[i]];
+            mp.clear();
+        }
+    }
+    return maxi;
+}
